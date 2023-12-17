@@ -2,10 +2,17 @@
 
 ## Introduction
 
-This is Back-end server for Otter's Community Board 
-
+This is Back-end server for Otter's Community Board.
 - [Otter's Community Board](https://github.com/otterbits/vue-community-board)
 - offer some REST API for community board
+  
+made by [spring initializr](https://start.spring.io/).  
+
+### Spring Boot Initializr Config
+
+![image](https://github.com/SanGyuk-Raccoon/community-board-server/assets/56672129/814d9717-ab4d-497d-937b-17bebb7822be)
+
+
 
 ## Getting Started
 
