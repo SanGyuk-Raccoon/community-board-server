@@ -26,4 +26,13 @@ public class PostController {
         postRepository.save(post);
         return new ResponseEntity(post, HttpStatus.OK);
     }
+
+    @GetMapping("/api/post/{id}")
+    public ResponseEntity<Post> getPost(@PathVariable(name = "id") Long id) {
+        if (postRepository.findById(id).isPresent()){
+            Post post = postRepository.findById(id).get();
+            return new ResponseEntity<>(post, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
+    }
 }
