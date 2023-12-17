@@ -15,7 +15,7 @@ public class Post {
     private Long id;
     private String title;
     private String author;
-    @JsonFormat(pattern = "yyyy.MM.dd")
+    @JsonFormat(pattern = "yyyy.MM.dd HH:mm:ss")
     private Date date;
     private String content;
 }
