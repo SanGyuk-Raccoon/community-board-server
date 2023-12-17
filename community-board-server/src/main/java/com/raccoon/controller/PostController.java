@@ -35,4 +35,13 @@ public class PostController {
         }
         return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
     }
+
+    @DeleteMapping("/api/post/{id}")
+    public ResponseEntity<Post> deletePost(@PathVariable(name = "id") Long id) {
+        if (postRepository.existsById(id)) {
+            postRepository.deleteById(id);
+            return new ResponseEntity<>(null, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
+    }
 }
