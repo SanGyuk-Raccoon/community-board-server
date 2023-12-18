@@ -18,4 +18,11 @@ public class Post {
     @JsonFormat(pattern = "yyyy.MM.dd HH:mm:ss")
     private Date date;
     private String content;
+
+    public void copyFrom(Post source) {
+        this.title = source.title;
+        this.author = source.author;
+        this.date = source.date;
+        this.content = source.content;
+    }
 }

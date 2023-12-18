@@ -9,7 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class PostController {
 
@@ -24,13 +26,14 @@ public class PostController {
     @PostMapping("/api/post/create")
     public ResponseEntity<Post> registPost(@RequestBody Post post) {
         postRepository.save(post);
-        return new ResponseEntity(post, HttpStatus.OK);
+        return new ResponseEntity(null, HttpStatus.OK);
     }
 
     @GetMapping("/api/post/{id}")
     public ResponseEntity<Post> getPost(@PathVariable(name = "id") Long id) {
-        if (postRepository.findById(id).isPresent()){
-            Post post = postRepository.findById(id).get();
+        Optional<Post> dest = postRepository.findById(id);
+        if (dest.isPresent()) {
+            Post post = dest.get();
             return new ResponseEntity<>(post, HttpStatus.OK);
         }
         return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
@@ -40,6 +43,17 @@ public class PostController {
     public ResponseEntity<Post> deletePost(@PathVariable(name = "id") Long id) {
         if (postRepository.existsById(id)) {
             postRepository.deleteById(id);
+            return new ResponseEntity<>(null, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
+    }
+
+    @PatchMapping("/api/post/{id}")
+    public ResponseEntity<Post> modifyPost(@PathVariable(name = "id") Long id, @RequestBody Post post) {
+        Optional<Post> dest = postRepository.findById(id);
+        if (dest.isPresent()) {
+            dest.get().copyFrom(post);
+            postRepository.save(dest.get());
             return new ResponseEntity<>(null, HttpStatus.OK);
         }
         return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
