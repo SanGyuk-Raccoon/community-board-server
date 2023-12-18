@@ -2,6 +2,7 @@ package com.raccoon.controller;
 
 
 import com.raccoon.Entity.Post;
+import com.raccoon.Entity.PostInfoMapping;
 import com.raccoon.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,11 +20,11 @@ public class PostController {
     private PostRepository postRepository;
 
     @GetMapping("/api/posts")
-    public ResponseEntity<List<Post>> getAllPost() {
-        return new ResponseEntity(postRepository.findAll(), HttpStatus.OK);
+    public ResponseEntity<List<PostInfoMapping>> getAllPost() {
+        return new ResponseEntity(postRepository.findAllPostBy(), HttpStatus.OK);
     }
 
-    @PostMapping("/api/post/create")
+    @org.springframework.web.bind.annotation.PostMapping("/api/post/create")
     public ResponseEntity<Post> registPost(@RequestBody Post post) {
         postRepository.save(post);
         return new ResponseEntity(null, HttpStatus.OK);
