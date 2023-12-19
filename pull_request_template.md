@@ -1,7 +1,18 @@
-# this is PR TEMPLATE
+## Summary
 
 <br>
+
+## Describe your changes
+
+- 
+-
+
+<br>
+
+## Related Issues
+
+<br>
+
 ***
 
-- [ ] this is check box
-- [ ] this is check box
+- [ ] 정상 동작 확인 여부
