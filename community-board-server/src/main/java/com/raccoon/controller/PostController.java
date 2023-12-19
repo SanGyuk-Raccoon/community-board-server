@@ -57,6 +57,6 @@ public class PostController {
             postRepository.save(dest.get());
             return new ResponseEntity<>(post, HttpStatus.OK);
         }
-        return new ResponseEntity<>(post, HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
     }
 }
