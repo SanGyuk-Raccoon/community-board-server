@@ -27,7 +27,7 @@ public class PostController {
     @org.springframework.web.bind.annotation.PostMapping("/api/post/create")
     public ResponseEntity<Post> registPost(@RequestBody Post post) {
         postRepository.save(post);
-        return new ResponseEntity(null, HttpStatus.OK);
+        return new ResponseEntity(post, HttpStatus.OK);
     }
 
     @GetMapping("/api/post/{id}")
@@ -55,7 +55,7 @@ public class PostController {
         if (dest.isPresent()) {
             dest.get().copyFrom(post);
             postRepository.save(dest.get());
-            return new ResponseEntity<>(null, HttpStatus.OK);
+            return new ResponseEntity<>(post, HttpStatus.OK);
         }
         return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
     }
