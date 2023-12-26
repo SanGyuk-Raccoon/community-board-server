@@ -55,9 +55,9 @@ public class PostController {
     public ResponseEntity<Post> modifyPost(@PathVariable(name = "id") Long id, @RequestBody Post post) {
         Optional<Post> dest = postRepository.findById(id);
         if (dest.isPresent()) {
-            dest.get().copyFrom(post);
             Date currentTime = new Date();
             post.setDate(currentTime);
+            dest.get().copyFrom(post);
             postRepository.save(dest.get());
             return new ResponseEntity<>(post, HttpStatus.OK);
         }
