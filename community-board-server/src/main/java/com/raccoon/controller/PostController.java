@@ -9,13 +9,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin(origins = "*")
 @RestController
 public class PostController {
-
     @Autowired
     private PostRepository postRepository;
 
@@ -24,8 +24,10 @@ public class PostController {
         return new ResponseEntity(postRepository.findAllPostBy(), HttpStatus.OK);
     }
 
-    @org.springframework.web.bind.annotation.PostMapping("/api/post/create")
+    @PostMapping("/api/post/create")
     public ResponseEntity<Post> registPost(@RequestBody Post post) {
+        Date currentTime = new Date();
+        post.setDate(currentTime);
         postRepository.save(post);
         return new ResponseEntity(post, HttpStatus.OK);
     }
@@ -54,6 +56,8 @@ public class PostController {
         Optional<Post> dest = postRepository.findById(id);
         if (dest.isPresent()) {
             dest.get().copyFrom(post);
+            Date currentTime = new Date();
+            post.setDate(currentTime);
             postRepository.save(dest.get());
             return new ResponseEntity<>(post, HttpStatus.OK);
         }
