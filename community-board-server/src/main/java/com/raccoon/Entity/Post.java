@@ -3,11 +3,13 @@ package com.raccoon.Entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
 @Entity(name = "POST")
 @Getter
+@Setter
 @Table(name = "POST_TABLE")
 public class Post {
     @Id
