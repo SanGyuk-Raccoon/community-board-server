@@ -23,6 +23,17 @@ made by [spring initializr](https://start.spring.io/).
 use `IntelliJ IDEA` both
 ![gradle setting](https://github.com/SanGyuk-Raccoon/community-board-server/assets/56672129/34f11965-b5bb-4232-9762-af79aeb64e4a)
 
+## API
+
+|   function    | Method |    URL    |
+|--------------|:------:|---------|
+|모든 글 불러오기|GET|/posts|
+|상세 글 불러오기|GET|/post/{id}|
+|글 작성|POST|/post/create|
+|글 수정|PATCH|/post/{id}|
+|글 삭제|DELETE|/post/{id}|
+
+
 ## Run
 
 1. run `CommunityBoardServerApplication`
