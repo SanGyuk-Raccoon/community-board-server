@@ -38,7 +38,8 @@ use `IntelliJ IDEA` both
 
 1. run `CommunityBoardServerApplication`
    ![image](https://github.com/SanGyuk-Raccoon/community-board-server/assets/56672129/b4954561-cd48-40c3-8614-b60c2f800cbb)
-2. access to `localhost:8080`
-![image](https://github.com/SanGyuk-Raccoon/community-board-server/assets/56672129/99ef940d-419c-4ac4-a44b-abb67d05234f)
+2. access to `server`
+![image](https://github.com/SanGyuk-Raccoon/community-board-server/assets/56672129/fd9906f4-1f07-4f68-aeaa-f9d35caedc48)
+
 
    
